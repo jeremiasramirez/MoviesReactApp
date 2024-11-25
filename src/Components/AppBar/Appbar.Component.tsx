@@ -4,7 +4,10 @@ export default function AppBarComponent(){
 
     return <> 
         <section className='container__appbar'>
-            appbar
+            
+            <article className='container__search'>
+                <input type="search" placeholder='Search'/>
+            </article>
         </section>
     </>
 }

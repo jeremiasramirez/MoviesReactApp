@@ -7,7 +7,9 @@ export default function HomePage(){
 
         <section className="container__home">
             <article className="container__articles"> <SideBarComponent /> </article>
-            <article> <AppBarComponent /> </article>
+            <article>
+                 <AppBarComponent /> 
+             </article>
         </section>
     </>
 }
