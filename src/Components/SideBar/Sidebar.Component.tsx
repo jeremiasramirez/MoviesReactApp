@@ -16,21 +16,17 @@ export default function SideBarComponent(){
         <div className="container__sidebar">
             <h1 className="sidebar__title animate__animated animate__fadeIn">Flix</h1>
 
-            <h1 className="sidebar__container__title animate__animated animate__fadeIn">Menu</h1>
+            
+            
            
-        
-           
-          
- 
-           
-            <div className="container__sidebar__items">
+            <div className="container__sidebar__items animate__animated animate__fadeIn">
            
          
 
-                
+            <h1 className="sidebar__container__title ">Menu</h1>
                 {/* sidebar item Browse*/}
                 <Link  to="/" className="resetlinkrouter">
-                    <div className="container__sidebar__item animate__animated animate__fadeIn">
+                    <div className="container__sidebar__item ">
                         <img src="/home.png" alt="browse" />
                         <p>Browse</p>
                     </div>
@@ -38,15 +34,19 @@ export default function SideBarComponent(){
 
                 {/* sidebar item Watchlist*/}
                 <Link  to="watchlist" className="resetlinkrouter">
-                    <div className="container__sidebar__item animate__animated animate__fadeIn">
+                    <div className="container__sidebar__item ">
                         <img src="/favorite.png" alt="browse" />
                         <p>Watchlist </p>
                     </div> 
                 </Link>
 
+                <h1 className="sidebar__container__title ">General</h1>
+           
+
+                {/* sidebar item Setting*/}
                 <Link  to="setting" className="resetlinkrouter">
                    {/* sidebar item SettingsPage*/}
-                   <div  className="container__sidebar__item animate__animated animate__fadeIn">
+                   <div  className="container__sidebar__item ">
                     <img src="/settings.png" alt="Settings" />
                     <p>Settings </p>
                     </div> 
