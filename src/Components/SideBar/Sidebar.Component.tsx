@@ -21,9 +21,9 @@ export default function SideBarComponent(){
            
             <div className="container__sidebar__items animate__animated animate__fadeIn">
            
-         
 
-            <h1 className="sidebar__container__title ">Menu</h1>
+                <h1 className="sidebar__container__title ">Menu</h1>
+
                 {/* sidebar item Browse*/}
                 <Link  to="/" className="resetlinkrouter">
                     <div className="container__sidebar__item ">
@@ -39,6 +39,25 @@ export default function SideBarComponent(){
                         <p>Watchlist </p>
                     </div> 
                 </Link>
+
+
+                {/* sidebar item coming soon*/}
+                <Link  to="coming" className="resetlinkrouter">
+                    <div className="container__sidebar__item ">
+                        <img src="/comin.png" alt="browse" />
+                        <p>Coming soon </p>
+                    </div> 
+                </Link>
+
+
+                {/* sidebar item TV*/}
+                <Link  to="tv" className="resetlinkrouter">
+                    <div className="container__sidebar__item ">
+                        <img src="/tv.png" alt="browse" />
+                        <p>TV shows </p>
+                    </div> 
+                </Link>
+
 
                 <h1 className="sidebar__container__title ">General</h1>
            

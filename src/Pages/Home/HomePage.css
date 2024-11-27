@@ -4,6 +4,17 @@
     align-items: center;
 }
 
+ 
+
 .container__children__routes{
-    width: 760px;
+    width: 860px;
+    margin-top: 60px;
+    z-index: 10;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 60px;
+    /* margin-left: 50px; */
 }
+ 

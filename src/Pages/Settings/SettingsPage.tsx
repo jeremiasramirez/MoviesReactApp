@@ -1,7 +1,11 @@
+import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial"
 import "./SettingsPage.css"
 
 export default function SettingsPage(){
+    DocumentTitle("Setting")
 
+
+    
     return <>
         <section className="container__settings">
             <h1>Setting</h1>
