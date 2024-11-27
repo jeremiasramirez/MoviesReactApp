@@ -1,11 +1,13 @@
 .container__appbar{
-    width: 100%;
+    width: 100% !important;
     height: 60px;
     position: fixed;
     top:0;
     left:231px;
     padding-left: 50px;
     padding-top: 30px;
+    margin-bottom: 100px;
+    /* z-index: -1; */
     /* background-color: blue; */
 }
 
@@ -19,6 +21,6 @@
     font-size: 16px;
     font-family: verdana;
     outline: none;
-    border: 1px solid #ffffff6f;
+    border: 1.5px solid #ffffff6f;
     border-radius: 18px;
 }

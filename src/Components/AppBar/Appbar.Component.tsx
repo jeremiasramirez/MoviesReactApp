@@ -1,3 +1,4 @@
+// import { Outlet } from 'react-router-dom'
 import './Appbar.Component.css'
 
 export default function AppBarComponent(){
@@ -7,7 +8,13 @@ export default function AppBarComponent(){
             
             <article className='container__search'>
                 <input type="search" placeholder='Search'/>
+                
             </article>
+            
         </section>
+
+        
+
+        
     </>
 }

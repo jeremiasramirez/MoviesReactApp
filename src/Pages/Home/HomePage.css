@@ -3,3 +3,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.container__children__routes{
+    width: 760px;
+}
