@@ -1,26 +1,16 @@
-import { useEffect } from "react"
-import TrendingMovieService from "../../Services/TrendingService"
+
+// import { MOVIE_INTERFACE } from "../../Interfaces/MOVIE"
+
+import TrendingComponent from "../TrendingMovies/TrendingComponent";
 
 
 
 export default function Catalog(){
-
-    useEffect(()=>{
-        const data= ()=>{
-             TrendingMovieService().subscribe((data_)=>{
-                console.log(data_);
-                
-            })
-        }
-
-        return ()=>{
-            data()
-        }
-
-    },[])
+   
 
 
     return <>
-        <p>Catalog</p>
+        <TrendingComponent />
+        
     </>
 }

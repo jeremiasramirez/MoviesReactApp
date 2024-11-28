@@ -9,6 +9,7 @@ export interface MOVIE_INTERFACE {
     original_language: string;
     original_title: string;
     genre_ids: number[];
+    name?: string;
     backdrop_path?: string;
     adult: boolean;
     overview: string;
@@ -19,7 +20,7 @@ export interface MOVIE_INTERFACE {
   export interface detailMovie {
     adult: boolean;
     backdrop_path: string;
-    belongs_to_collection?: any;
+    belongs_to_collection?: string;
     budget: number;
     genres: Genre[];
     homepage: string;

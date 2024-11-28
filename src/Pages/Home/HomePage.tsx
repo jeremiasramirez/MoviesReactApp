@@ -23,7 +23,7 @@ export default function HomePage(){
 
            <article className="container__children__routes">
             {<Outlet />}
-           {/* { <Catalog />} */}
+          
            </article>
         </section>
     </>
