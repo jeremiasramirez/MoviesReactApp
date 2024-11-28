@@ -10,11 +10,16 @@
     width: 860px;
     margin-top: 60px;
     z-index: 10;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
+    border: 1px solid yellow;
     justify-content: center;
     align-items: center;
     margin-left: 60px;
     /* margin-left: 50px; */
 }
  
+
+/* .titlePerCategory{
+
+} */
