@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TrendingMovieService from "../../Services/TrendingService";
 import "./TrendingComponent.css"
 import { MOVIE_INTERFACE } from "../../Interfaces/MOVIE";
+import SkeletonComponent from "../Skeleton/Skeleton.Component";
 export default function TrendingComponent(){
     const [trendingMovies,setTrendingMovies] = useState([])
     
@@ -26,17 +27,17 @@ export default function TrendingComponent(){
      
         
         <div>
-            <p>Trendin</p>
+            <p className="title__trending">Trending Now</p>
         
         <section className="CardMovie">
            
           
           
             {
-                trendingMovies.map((movies:MOVIE_INTERFACE,index:number)=>{
+              trendingMovies.length?  trendingMovies.map((movies:MOVIE_INTERFACE,index:number)=>{
                    
                     return( 
-                        <article key={index}  className="card">
+                        <article key={index}  className="card animated__animate animate__bounceIn">
                        
                         <img className="card__image" src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
                         
@@ -47,11 +48,11 @@ export default function TrendingComponent(){
                         
                     </article> 
                 )
-                })
+                }): <SkeletonComponent />
                 
                 
             }
-         
+           
         </section>
 
         </div>

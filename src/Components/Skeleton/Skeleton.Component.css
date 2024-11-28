@@ -1,0 +1,48 @@
+
+/* skeleton */
+
+.skeleton{
+    width:180px;
+    height: 290px;
+    background-color: #1f1e1e;
+    margin: 8px;
+    border-radius: 8px;
+    animation: animateSkeleton .8s infinite linear;
+}
+
+@keyframes animateSkeleton{
+    from {
+        opacity: .5;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.skeleton__picture{
+    width:180px;
+    /* transform: scale(.9); */
+    height: 250px;
+    border-radius: 8px;
+    background-color: #333;
+}
+
+.skeleton__title{
+    width:180px;
+    height: 15px;
+    margin-top: 5px;
+    transform: scale(.9);
+    border-radius: 8px;
+    background-color: #333;
+}
+.skeleton__subtitle{
+    width:130px;
+    height: 13px;
+    margin-top: 3px;
+    margin-left: 2px;
+    transform: scale(.9);
+    border-radius: 8px;
+    background-color: #333;
+}
+
+
