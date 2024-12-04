@@ -4,7 +4,10 @@ import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial";
 
 
 export default function MoviePage(){
-    DocumentTitle('Star')
+    const changeTitle = ()=>{
+        DocumentTitle('Star')
+    }
+    changeTitle()
     const params=useParams();
     
 

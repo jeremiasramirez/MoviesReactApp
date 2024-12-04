@@ -7,7 +7,14 @@ import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial";
 
 
 export default function HomePage(){
-    DocumentTitle()
+   
+    const changeTitle = ()=>{
+        DocumentTitle()
+        
+    }
+   
+        changeTitle()
+    
     // const useParam=useParams();
 
     return <>

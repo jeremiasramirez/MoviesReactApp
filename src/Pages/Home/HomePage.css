@@ -8,14 +8,18 @@
 
 .container__children__routes{
     width: 880px;
-    margin-top: 60px;
+    margin-top: 70px;
+    /* margin-left: -10px; */
     z-index: 10;
     /* background-color: blue; */
     display: flex;
     border: 1px solid yellow;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
+    flex-wrap: wrap;
     margin-left: 60px;
+
     /* margin-left: 50px; */
 }
  

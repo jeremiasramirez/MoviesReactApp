@@ -1,10 +1,13 @@
-import { delay, Observable, pluck } from "rxjs";
-import { API_KEY, mainURL } from "./API-KEY";
-import { ajax } from "rxjs/ajax";
-// import { MOVIE_INTERFACE } from "../Interfaces/MOVIE";
+import { delay, pluck } from "rxjs"
+import { ajax } from "rxjs/ajax"
+import { API_KEY, mainURL } from "./API-KEY"
+// import { MOVIE_INTERFACE } from "../Interfaces/MOVIE"
 
-export default function TrendingMovieService():Observable<unknown>{
-    const url =  `${mainURL}trending/all/day?api_key=${API_KEY}&language=es`
+
+
+export default function CarouselService(){
+
+    const url =  `${mainURL}movie/top_rated?api_key=${API_KEY}&language=es&page=1`
 
     
 
@@ -16,3 +19,5 @@ export default function TrendingMovieService():Observable<unknown>{
         delay(1000)
       )
 }
+
+// https://api.themoviedb.org/3/movie/popular?language=en-US&page=1

@@ -1,0 +1,101 @@
+.carrousel__container{
+    width: 800px;
+    height: 310px;
+    /* background-image: url("https://media.licdn.com/dms/image/v2/D4E12AQFXAPAown2PJA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1709591785452?e=2147483647&v=beta&t=wn4wnucv8tgLrAZ0uYlAmmsusy0qTLMI4AsQ5Lb20bY"); */
+
+   
+    border-radius: 20px;
+    margin-top: 10px;
+    
+}
+
+.carrousel__items{
+    background-color: rgba(24, 23, 23, 0.919);
+    height: 310px;
+    width: 800px;
+    border-radius: 18.9px;
+}
+
+
+.carrousel__poster {
+    width: 180px;
+    height: 300px;
+    /* background-color: rgba(24, 23, 23, 0.093); */
+    padding-top: 3px;
+     
+    /* background-color: blue; */
+    /* margin-left: 10px; */
+    border-radius: 19.9px;
+
+}
+
+
+.container__live{
+    display: flex;
+    justify-content: space-between;
+    width: 45px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding:3px 10px;
+    align-items: center;
+    background-color: rgb(188, 39, 39);
+    
+}
+.container__live img{
+    width: 19px !important;
+    margin-left: -1px !important;
+     
+}
+.container__live span{
+    font-family: sans-serif;
+    font-size: 12px;
+    
+}
+.carrousel__poster img{
+    width: 160px;
+    border-radius: 20px;
+    height: 240px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+ 
+.container__watch button{
+    width: 150px;
+    background-color: rgb(188, 39, 39);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 6px;
+    border-radius: 10px;
+    margin-left: 15px;
+    transition: .2s;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.container__watch button:hover{
+    
+    opacity: .8;
+}
+
+.scalate{
+    animation: animateCarrousel 5s  infinite ease-in;
+}
+@keyframes animateCarrousel {
+    0%, 90%{
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1; 
+    } 
+    100% {
+      
+        opacity: 0;
+        filter: blur(5px);
+      }
+       
+}
+
+
+
+ 

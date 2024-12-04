@@ -32,6 +32,18 @@ export default function SideBarComponent(){
                     </div>
                 </Link>
 
+
+
+                {/* sidebar item discover*/}
+                <Link  to="discover" className="resetlinkrouter">
+                    <div className="container__sidebar__item ">
+                        <img src="/discover.png" alt="discover" />
+                        <p>Discover </p>
+                    </div> 
+                </Link>
+
+
+
                 {/* sidebar item Watchlist*/}
                 <Link  to="watchlist" className="resetlinkrouter">
                     <div className="container__sidebar__item ">
