@@ -2,6 +2,7 @@
 import { Box, Modal, Typography } from '@mui/material'
 import './Appbar.Component.css'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function AppBarComponent(){
     const [open, setOpen] = useState(false);
@@ -12,22 +13,32 @@ export default function AppBarComponent(){
         setOpen(true);
       };
     
+      const navigate  = useNavigate()
+      const goTo=()=>{ navigate ("watchlist") }
+
+
+
+
+      
     return <> 
         <section className='container__appbar'>
             
             <article className='container__icon'>
-                <img src="/search.png" alt="" />
+                <img src="/play.png" alt="" />
             </article>
 
             <article className='container__items__bar'>
                 <div className='icons__bar' onClick={handleOpen}>
                     <img src="/search.png" alt="" />
                 </div>
-                <div className='icons__bar' onClick={handleOpen}>
-                    <img src="/search.png" alt="" />
+
+                <div className='icons__bar' onClick={()=>goTo()}  >
+               
+                    <img src="/favorite.png" alt="" />
+                  
                 </div>
-                <div className='icons__bar' onClick={handleOpen}>
-                    <img src="/search.png" alt="" />
+                <div className='icons__bar'  >
+                    <img src="/settings.png" alt="" />
                 </div>
             </article>
  

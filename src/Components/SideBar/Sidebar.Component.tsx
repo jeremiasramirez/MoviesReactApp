@@ -40,12 +40,12 @@ export default function SideBarComponent(){
 
 
                 {/* sidebar item Watchlist*/}
-                <Link  to="watchlist" className="resetlinkrouter">
-                    <div className="container__sidebar__item ">
+                {/* <Link  to="watchlist" className="resetlinkrouter"> */}
+                    {/* <div className="container__sidebar__item ">
                         <img src="/favorite.png" alt="browse" />
                         <p>Watchlist </p>
                     </div> 
-                </Link>
+                </Link> */}
 
 
                 {/* sidebar item coming soon*/}
