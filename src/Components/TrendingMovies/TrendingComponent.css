@@ -10,12 +10,12 @@
 }
 
 .card{
-    width:180px;
-    height: 290px;
+    width:190px;
+    height: 300px;
     /* border: 2px solid yellow; */
     background-color: #383737;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
    border-top-left-radius: 25px;
    border-top-right-radius: 25px;
    margin-top: 12px;
@@ -27,14 +27,14 @@
 
 .card:hover{
 
-    transition: .3s;
-    box-shadow: .6px 2px 3px 7px #222;
+    transition: .3s; 
 }
 .card:hover .card__image {
     transition: .3s;
+    transform: translateY(-2px);
  
     /* border-radius: 10%; */
-    transform: scale(.95);
+   
 }
  
 .card__image{
@@ -60,8 +60,8 @@
    
     height: 24px;
  
-   border-bottom-left-radius: 25px;
-   border-bottom-right-radius: 25px;
+   border-bottom-left-radius: 22px;
+   border-bottom-right-radius: 22px;
     margin-top: 1px !important;
     text-align: center;
     width: inherit;

@@ -11,14 +11,17 @@
 
 .carrousel__items{
     background-color: rgba(24, 23, 23, 0.919);
-    height: 310px;
+    height: 310px; 
     width: 800px;
     border-radius: 18.9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
 .carrousel__poster {
-    width: 180px;
+    width: 190px;
     height: 300px;
     /* background-color: rgba(24, 23, 23, 0.093); */
     padding-top: 3px;
@@ -29,46 +32,24 @@
 
 }
 
-
-.container__live{
-    display: flex;
-    justify-content: space-between;
-    width: 45px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    padding:3px 10px;
-    align-items: center;
-    background-color: rgb(188, 39, 39);
-    
-}
-.container__live img{
-    width: 19px !important;
-    margin-left: -1px !important;
-     
-}
-.container__live span{
-    font-family: sans-serif;
-    font-size: 12px;
-    
-}
 .carrousel__poster img{
-    width: 160px;
+    /* width: 10px; */
     border-radius: 20px;
-    height: 240px;
+    height: 283px;
     margin-left: 10px;
     margin-top: 10px;
 }
 
  
 .container__watch button{
-    width: 150px;
+    width: 200px;
     background-color: rgb(188, 39, 39);
     border: none;
     padding: 10px;
     cursor: pointer;
     margin-top: 6px;
     border-radius: 10px;
-    margin-left: 15px;
+    margin-left: 25%;
     transition: .2s;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     
@@ -85,13 +66,13 @@
 @keyframes animateCarrousel {
     0%, 90%{
         transform: scale(1);
-        filter: blur(0);
+        /* filter: blur(0); */
         opacity: 1; 
     } 
     100% {
-      
+        transform: scale(.9);
         opacity: 0;
-        filter: blur(5px);
+        /* filter: blur(5px); */
       }
        
 }
@@ -99,3 +80,54 @@
 
 
  
+
+
+
+.carrousel__description__container{
+    /* background-color: rgba(35, 35, 35, 0.345); */
+    width: 580px;
+    height: 200px;
+    padding:20px;
+    margin: 20px;
+    overflow: hidden;
+
+}
+
+.carrousel__description__title__movie{
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+   
+
+}
+
+ 
+
+.carrousel__overview{
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+
+/* 
+.container__live{
+    display: flex;
+    justify-content: space-between;
+    width: 45px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding:3px 10px;
+    align-items: center;
+    background-color: rgb(188, 39, 39);
+    
+} */
+/* .container__live img{
+    width: 19px !important;
+    margin-left: -1px !important;
+     
+}
+.container__live span{
+    font-family: sans-serif;
+    font-size: 12px;
+    
+} */

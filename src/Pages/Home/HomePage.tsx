@@ -19,7 +19,7 @@ export default function HomePage(){
 
     return <>
 
-        <section className="container__home">
+        <section  className="container__home">
             <article className="container__articles">
                  <SideBarComponent /> 
             </article>
@@ -28,11 +28,13 @@ export default function HomePage(){
                  <AppBarComponent /> 
              </article>
 
-           <article className="container__children__routes">
+           <article   className="container__children__routes">
             {<Outlet />}
           
            </article>
         </section>
     </>
 }
+
+
 

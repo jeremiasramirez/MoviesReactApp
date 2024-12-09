@@ -19,4 +19,4 @@ export default function PopularService(){
       )
 }
 
-// https://api.themoviedb.org/3/movie/popular?language=en-US&page=1
+// 3/genre/movie/list?

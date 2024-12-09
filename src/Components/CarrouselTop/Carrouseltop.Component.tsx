@@ -18,6 +18,7 @@ export default function CarrouselTop(){
     useEffect(()=>{
         const getCarouselMovies = ()=>{
         CarouselService().subscribe((response)=>{
+            setMoviesTop(response[0]);
             interval(5000).subscribe(()=>{
                 setMoviesTop(response[(Number(Math.random() * 19)).toFixed(0)]);
             })
@@ -52,14 +53,20 @@ export default function CarrouselTop(){
           <article className='carrousel__items'>
            <article className='carrousel__poster  ' >
                 <img className='scalate' src={"https://image.tmdb.org/t/p/w300"+moviesTop.poster_path+".jpg"} alt="" />
-                <div className='container__watch'>
-                    <button>WATCH</button>
-                </div>
+           
             </article>
             <article className='carrousel__description__container'>
                 <div className='carrousel__description__title'>
-                    
+                {moviesTop.title? <p className="carrousel__description__title__movie animate__animated animate__fadeInUp">{moviesTop.title.toUpperCase()}</p>:
+                        <p className="animate__animated animate__fadeInUp">{moviesTop.name.toUpperCase()}</p>}
+
+                    <p className='carrousel__overview animate__animated animate__fadeInUpBig'>{moviesTop.overview.substring(0,150)+"..."}</p>
+              
+                    <div className='container__watch'>
+                    <button>WATCH</button>
                 </div>
+                </div>
+
             </article>
            </article> 
          

@@ -15,17 +15,31 @@
     /* background-color: blue; */
 }
 
+ 
+.container__items__bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5px;
+}
 
-
-.container__search input{
-    width: 300px;
-    height: 35px;
-    background-color: transparent;
-    padding-left: 20px;
-    font-size: 16px;
-    
-    font-family: verdana;
-    outline: none;
-    border: 1.5px solid #ffffff6f;
-    border-radius: 18px;
+.icons__bar{
+ 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    cursor: pointer;
+    padding: 2px;
+  
+}
+.icons__bar:hover{
+    transition: .4s;
+     background-color: #444;
+}
+.icons__bar img{
+    width: 30px;
 }

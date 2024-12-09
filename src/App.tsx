@@ -24,7 +24,10 @@ function App() {
               <Route path='setting' element={<SettingsPage />}></Route>
               <Route path='watchlist' element={<WatchlistPage />}></Route>
               <Route path='coming' element={<ComingPage />}></Route>
-              <Route path='discover' element={<DiscoverPage />}></Route>
+              <Route path='discover' element={<DiscoverPage />} />
+              <Route path='discover' element={<DiscoverPage />}>
+                <Route path='discover/:id' element={<DiscoverPage />} />
+              </Route>
               <Route path='show/:id' element={<MoviePage />}></Route>
             </Route> 
           </Routes>
