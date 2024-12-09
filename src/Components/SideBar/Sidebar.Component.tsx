@@ -1,12 +1,7 @@
- 
-// import { NavLink } from "react-router-dom"
-// import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
-import { Link } from "react-router-dom"
+ import { Link } from "react-router-dom"
 import "./Siderbar.Component.css"
 import "animate.css"
-// import HomePage from "../../Pages/Home/HomePage"
-// import HomePage from "../../Pages/Home/HomePage"
-// import SettingsPage from "../../Pages/Settings/SettingsPage"
+
 
 export default function SideBarComponent(){
 
