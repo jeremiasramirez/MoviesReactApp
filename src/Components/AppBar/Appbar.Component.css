@@ -40,15 +40,22 @@
     padding: 2px;
   
 }
+.icons__bar:hover img{
+    transform: scale(1.100);
+    transition: .3s;
+    color: red
+}
+
 .icons__bar:hover{
     transition: .4s;
      background-color: #444;
 }
 .icons__bar img{
-    width: 30px;
+    width: 25px;
 }
 
 .container__icon img{
     transform : scale(.9) ;
     width: 80px;
 }
+ 

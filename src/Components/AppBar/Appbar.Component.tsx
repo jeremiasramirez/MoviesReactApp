@@ -1,60 +1,59 @@
 // import { Outlet } from 'react-router-dom'
-import { Box, Modal, Typography } from '@mui/material'
+
 import './Appbar.Component.css'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
+import { Box, Modal } from '@mui/material';
+import SearchModal from '../SearchModal/SearchModal.Component';
 
 export default function AppBarComponent(){
     const [open, setOpen] = useState(false);
-    const handleClose = () => {
-        setOpen(false);
-      };
+ 
       const handleOpen = () => {
         setOpen(true);
       };
+
+      const handleClose = () => {
+        setOpen(false);
+      };
     
       const navigate  = useNavigate()
-      const goTo=()=>{ navigate ("watchlist") }
+      const goTo=(name:string)=>{ navigate (name) }
 
 
 
 
-      
+
     return <> 
         <section className='container__appbar'>
             
-            <article className='container__icon'>
+            <article className='container__icon animate__animated animate__fadeIn'>
                 <img src="/play.png" alt="" />
             </article>
 
             <article className='container__items__bar'>
-                <div className='icons__bar' onClick={handleOpen}>
+                <div className='icons__bar animate__animated animate__bounceIn' onClick={handleOpen}>
                     <img src="/search.png" alt="" />
                 </div>
 
-                <div className='icons__bar' onClick={()=>goTo()}  >
+                <div className='icons__bar animate__animated animate__bounceIn' onClick={()=>goTo("watchlist")}  >
                
                     <img src="/favorite.png" alt="" />
                   
                 </div>
-                <div className='icons__bar'  >
+                <div className='icons__bar animate__animated animate__bounceIn'  onClick={()=>goTo("setting")}>
                     <img src="/settings.png" alt="" />
                 </div>
             </article>
  
-            <Modal
+      {/* find movies modal */}
+        <Modal
             open={open}
             onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-            >
-            <Box>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                </Typography>
+           
+        >
+            <Box >
+                <SearchModal />
             </Box>
             </Modal>
             
@@ -65,4 +64,6 @@ export default function AppBarComponent(){
         
     </>
 }
+ 
 
+ 
