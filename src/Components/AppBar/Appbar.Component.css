@@ -59,3 +59,15 @@
     width: 80px;
 }
  
+
+
+ .Box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(6, 6, 6, 0.566);
+    border:none;
+    padding-top: 30px;
+    
+    
+ }

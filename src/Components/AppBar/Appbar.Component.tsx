@@ -7,7 +7,7 @@ import { Box, Modal } from '@mui/material';
 import SearchModal from '../SearchModal/SearchModal.Component';
 
 export default function AppBarComponent(){
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
  
       const handleOpen = () => {
         setOpen(true);
@@ -48,10 +48,9 @@ export default function AppBarComponent(){
  
       {/* find movies modal */}
         <Modal
+        className='Box'
             open={open}
-            onClose={handleClose}
-           
-        >
+            onClose={handleClose}  >
             <Box >
                 <SearchModal />
             </Box>
