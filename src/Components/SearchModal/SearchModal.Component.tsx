@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './SearchModal.Component.css'
+
 import SearchService from '../../Services/SearchService'
 import { MOVIE_INTERFACE } from '../../Interfaces/MOVIE'
 import { Alert, CircularProgress, Snackbar } from '@mui/material'
@@ -59,11 +60,7 @@ export default function SearchModal(){
            <section className='flex__modal'>
 
                 <article className='container__title__modal'>
-                    <h4>
-                       
-                        Search
-                        
-                    </h4>
+                    <h4>Search</h4>
                 </article>
 
                 {/*INPUT */}
@@ -80,11 +77,7 @@ export default function SearchModal(){
                 {/* movies results number  */}
                 {valueInput.length>=3  ? <p className='results animate__animated animate__fadeInDown'>results: {numberResults}</p>:false}
                 
-                {/* circular loading */}
-                <article className='container__movies__modal'>
-                { isFetchingNow ==true? <CircularProgress className='circular__load' color='error' size={'70px'} thickness={3}/> : false}
-                </article>
-
+             
 
 
                 {/* snack messa error */}
@@ -98,7 +91,40 @@ export default function SearchModal(){
                         Error: Network connection 
                     </Alert>
                     </Snackbar>
+                   
+                   
+             
+                  <article className='container__modal__movies scroll__items'>
+                      
+                       {/* circular loading */}
+                        <article className='container__movies__modal'>
+                        { isFetchingNow ==true? <CircularProgress className='circular__load' color='error' size={'70px'} thickness={3}/> : false}
+                        </article>
 
+                    {/* movies */}
+                  
+                    {
+                      resultsMovie.map((movies:MOVIE_INTERFACE,index:number)=>{
+                            
+                         return( 
+                                   movies.poster_path? <article key={index}  className="modal__card animate__animated animate__fadeIn">
+                                
+                                    <img className="modal__card__image" src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
+                                    
+                                    <div className="modal__container__title__card">
+                                    {movies.title? <p className="card__title">{movies.title.substring(0,9)}</p>:
+                                    <p className="modal__card__title">{movies.name?.substring(0,19)}</p>}
+                                    </div>
+                                    
+                                </article>  : false
+                            )
+                            })
+                    }
+                  </article>
+
+              
+                
+            
            </section>
  
     </>

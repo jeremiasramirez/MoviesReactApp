@@ -14,6 +14,7 @@ export interface MOVIE_INTERFACE {
     adult: boolean;
     overview: string;
     release_date: string;
+    media_type:string;
   }
   
 
