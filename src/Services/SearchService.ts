@@ -1,4 +1,4 @@
-import { delay, Observable, pluck, take } from "rxjs";
+import { debounceTime, delay, Observable, pluck, take } from "rxjs";
 import { API_KEY, mainURL } from "./API-KEY";
 import { ajax } from "rxjs/ajax";
 
@@ -13,6 +13,6 @@ export default function SearchService(query:string):Observable<unknown>{
       }).pipe(
         pluck("response","results"),
         take(10),
-        delay(500)
+        debounceTime(2000) 
       )
 }

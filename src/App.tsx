@@ -10,6 +10,7 @@ import ComingPage from './Pages/Coming/ComingPage'
 import MoviePage from './Pages/Movie/MoviePage'
 import Catalog from './Components/Catalog/Catalog'
 import DiscoverPage from './Pages/Discover/Discover.Page'
+import SearchPage from './Pages/Search/SearchPage'
 // import SettingsPage from './Pages/Settings/SettingsPage'
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='/' element={<HomePage />}>
             <Route path='/' element={<Catalog />}> </Route>
               <Route path='setting' element={<SettingsPage />}></Route>
+              <Route path='search' element={<SearchPage />}></Route>
               <Route path='watchlist' element={<WatchlistPage />}></Route>
               <Route path='coming' element={<ComingPage />}></Route>
               <Route path='discover' element={<DiscoverPage />} />
