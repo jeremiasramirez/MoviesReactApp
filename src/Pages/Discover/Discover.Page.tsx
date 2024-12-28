@@ -1,46 +1,129 @@
 
-
-/* import { useParams } from "react-router-dom" */
-/* import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial"; */
-
-import { useEffect, useState } from "react";
+import "./Discover.Page.css";
 import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial";
-import GenresService from "../../Services/GenresService";
-import { Outlet } from "react-router-dom"; 
+ 
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Box, Modal } from "@mui/material";
+import { useState } from "react";
+import genresLists from "../../Data/genres";
+
+
+ export default function DiscoverPage(){
+ 
+    DocumentTitle('Discover');
 
 
 
 
-export default function DiscoverPage(){
-    DocumentTitle('Discover')
-    const [Genres,setGenres] = useState([])
-    
-    useEffect(()=>{
+
+    return (
+        <div>
+            <ChooseGenres />
+
+
+        </div>
+    )
 
      
+   
+}
 
+function ChooseGenres(){
+    const [openModal,setOpenModal] = useState(false)
+    const [currentGenre,setCurrentGenre] = useState({name: "Action", code: 28})
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+    const staticGenres = genresLists();
+    const staticGenresSize = genresLists().length;
 
-
-        const obsTrendingMovie = ()=>{
-            GenresService().subscribe((response)=>{
-                // console.log(response);
-                setGenres(response)
-                
-            })
-        }
-
-        return ()=>{
-            obsTrendingMovie()
-           
-        }
-
-    },[])
-console.log(Genres);
+    const fordwardButton = ()=>{
+        console.log(staticGenres);
+        
+    }
+     
+    
+    // select Genres
+    return (
+    <section>
 
     
+    <section className="container__select">
+        <article className="option left__option">
+            <ArrowBackIosIcon></ArrowBackIosIcon>
+        </article>
 
-    return <>
-        <p>discover</p>
-       { <Outlet />}
-    </>
+        <article className="main__option" onClick={()=>handleOpenModal()}>
+            <p >{currentGenre.name}</p>
+        </article>
+
+        <article className="option right__option" onClick={fordwardButton}>
+            <ArrowForwardIosIcon></ArrowForwardIosIcon>
+        </article>
+
+
+        {/*lists genres*/}
+        <Modal
+            open={openModal}
+            onClose={handleCloseModal}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description">
+            <Box >
+                <section className="container__option__select" onClick={()=>setOpenModal(false)}>
+                    <article className="center__options">
+                    {
+                        genresLists().map((data,index)=>{
+                            return <article className="button__option animate__animated animate__fadeIn " 
+                            onClick={()=>{
+                                setOpenModal(false);
+                                setCurrentGenre({name:data.type,code:data.code});
+                            }}
+                             key={index}>{data.type}</article>
+                        })
+                    }
+                    </article>
+                </section>
+            </Box>
+        </Modal>
+     
+
+        </section>
+
+
+        <p>
+            {currentGenre.name} - {currentGenre.code}
+        </p>
+    </section>)
 }
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

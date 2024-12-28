@@ -97,7 +97,7 @@ export default function SearchPage(){
 
 
 
-         {/* snack messa error */}
+         {/* snackbar messa error */}
          <Snackbar open={isErrorFetching} autoHideDuration={6000} onClose={closeSnack}>
              <Alert
                  onClose={closeSnack}
@@ -130,6 +130,7 @@ export default function SearchPage(){
              valueInput.length!=0?  resultsMovie.map((movies:MOVIE_INTERFACE,index:number)=>{
                      
                   return( 
+
                             movies.poster_path? <article  onClick={()=>goToShow(movies.id)} key={index}  className="modal__card animate__animated animate__fadeIn">
                          
                              <img className="modal__card__image" src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
