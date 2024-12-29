@@ -1,5 +1,10 @@
 
-
+.container__discover{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 .container__select{
     /* background-color: lawngreen; */
     height: 130px;
@@ -18,7 +23,7 @@
 .option{
     margin: 1px;
  
-    background-color: rgba(34, 33, 33, 0.886) !important;
+    background-color: rgba(32, 32, 32, 0.464) !important;
 }
 
 .main__option{
@@ -43,6 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 .left__option{
     border-top-left-radius: 8px;
@@ -58,18 +64,20 @@
     transition: .2s;
 }
 
-
+.opacityModal{
+    background-color: rgba(15, 13, 13, 0.855);
+}
 
 .container__option__select{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(15, 13, 13, 0.751);
+    /* background-color: rgba(15, 13, 13, 0.751); */
     flex-direction: column;
 }
 
 .center__options{
-    background-color: rgba(16, 16, 16, 0.579);
+    /* background-color: rgba(16, 16, 16, 0.579); */
     width: 600px;
     display: flex;
     justify-content: center;
@@ -81,8 +89,9 @@
 .button__option{
 
     height: 45px;
+
     width: 270px;
-    background-color: rgba(28, 27, 27, 0.823); 
+    background-color: rgba(28, 27, 27, 0.458); 
     padding: 1px;
     align-content: center; 
     font-size: 18px;

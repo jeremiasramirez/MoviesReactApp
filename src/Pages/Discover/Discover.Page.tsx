@@ -1,12 +1,13 @@
 
 import "./Discover.Page.css";
 import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial";
- 
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Box, Modal } from "@mui/material";
-import { useState } from "react";
-import genresLists from "../../Data/genres";
+import { useEffect, useState } from "react";
+import genresLists from "../../Data/genres"; 
+import DiscoverService from "../../Services/DiscoverService";
+import { MOVIE_INTERFACE } from "../../Interfaces/MOVIE";
+import SkeletonComponent from "../../Components/Skeleton/Skeleton.Component";
+import { useNavigate } from "react-router-dom";
 
 
  export default function DiscoverPage(){
@@ -16,55 +17,70 @@ import genresLists from "../../Data/genres";
 
 
 
-
-    return (
-        <div>
-            <ChooseGenres />
-
-
-        </div>
-    )
-
-     
-   
-}
-
-function ChooseGenres(){
     const [openModal,setOpenModal] = useState(false)
-    const [currentGenre,setCurrentGenre] = useState({name: "Action", code: 28})
+    
+    const [currentGenre,setCurrentGenre] = useState({name: 'Action',code:0 })
     const handleOpenModal = () => setOpenModal(true);
     const handleCloseModal = () => setOpenModal(false);
-    const staticGenres = genresLists();
-    const staticGenresSize = genresLists().length;
+    const [moviesDiscoverList,setMoviesDiscoverList] = useState([])
 
-    const fordwardButton = ()=>{
-        console.log(staticGenres);
-        
-    }
      
+    useEffect(()=>{
+        
+        const obsDiscoverService= ()=>{
+            
+            if(currentGenre.code){
+                DiscoverService(currentGenre.code).subscribe((response)=>{
+                    setMoviesDiscoverList(response) 
+               });
+            }
+            else{
+                DiscoverService().subscribe((response)=>{
+                    setMoviesDiscoverList(response) 
+               });
+            }
+           
+
+
+
+
+        }
+      
+   
+           return ()=>{ obsDiscoverService() }
+   
+       },[currentGenre.code, moviesDiscoverList])
+       
+        const navigate  = useNavigate()
+        const goToShow=(id:number)=>{
+
+        navigate ("/show/"+id)
+
+        }
     
     // select Genres
     return (
-    <section>
+    <section className="container__discover">
 
     
     <section className="container__select">
-        <article className="option left__option">
-            <ArrowBackIosIcon></ArrowBackIosIcon>
-        </article>
+        <article className="option left__option"></article>
 
         <article className="main__option" onClick={()=>handleOpenModal()}>
             <p >{currentGenre.name}</p>
         </article>
 
-        <article className="option right__option" onClick={fordwardButton}>
-            <ArrowForwardIosIcon></ArrowForwardIosIcon>
-        </article>
+        <article className="option right__option" ></article>
+
+
+        
+
 
 
         {/*lists genres*/}
         <Modal
             open={openModal}
+            className="opacityModal"
             onClose={handleCloseModal}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
@@ -75,8 +91,15 @@ function ChooseGenres(){
                         genresLists().map((data,index)=>{
                             return <article className="button__option animate__animated animate__fadeIn " 
                             onClick={()=>{
+                                
+                                
                                 setOpenModal(false);
+                                setMoviesDiscoverList([])
+                                
                                 setCurrentGenre({name:data.type,code:data.code});
+                                console.log({name:data.type,code:data.code});
+                                
+                                
                             }}
                              key={index}>{data.type}</article>
                         })
@@ -89,15 +112,46 @@ function ChooseGenres(){
 
         </section>
 
+  
+     <section className="CardMovie">
 
-        <p>
-            {currentGenre.name} - {currentGenre.code}
-        </p>
+               
+                   {
+                    
+                     moviesDiscoverList.length?  moviesDiscoverList.map((movies:MOVIE_INTERFACE,index:number)=>{
+                          
+                           return( 
+                            <article  onClick={()=>goToShow(movies.id)} key={index}  className="modal__card animate__animated animate__fadeIn">
+                         
+                            <img className="modal__card__image" src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
+                            
+                            <div className="modal__container__title__card">
+                            {movies.title? <p className="card__title">{movies.title.substring(0,9)}</p>:
+                            <p className="modal__card__title">{movies.name?.substring(0,19)}</p>}
+                            </div>
+                            
+                        </article>
+                       )
+                       }): <SkeletonComponent />
+                       
+                       
+                   }
+                  
+               </section>
+
+
+               
+     
     </section>)
+
+     
+   
 }
- 
 
  
+
+
+
 
 
 
