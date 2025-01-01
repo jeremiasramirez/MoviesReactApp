@@ -1,15 +1,16 @@
 
 import "./Discover.Page.css";
 import DocumentTitle from "../../Partials/DocumentTitle/DocumentTitle.partial";
-import { Box, Modal } from "@mui/material";
+import { Box, CircularProgress, Modal } from "@mui/material";
 import { useEffect, useState } from "react";
 import genresLists from "../../Data/genres"; 
 import DiscoverService from "../../Services/DiscoverService";
 import { MOVIE_INTERFACE } from "../../Interfaces/MOVIE";
 import SkeletonComponent from "../../Components/Skeleton/Skeleton.Component";
 import { useNavigate } from "react-router-dom";
-
-
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { timer } from "rxjs";
  export default function DiscoverPage(){
  
     DocumentTitle('Discover');
@@ -19,13 +20,18 @@ import { useNavigate } from "react-router-dom";
 
     const [openModal,setOpenModal] = useState(false)
     
-    const [currentGenre,setCurrentGenre] = useState({name: 'Action',code:0 })
+    const [currentGenre,setCurrentGenre] = useState({name: 'Action',code:28 })
     const [currentNumberPage,setCurrentNumberPage] = useState({number:1 })
     const handleOpenModal = () => setOpenModal(true);
     const handleCloseModal = () => setOpenModal(false);
     const [moviesDiscoverList,setMoviesDiscoverList] = useState([])
-
+    const [isLoaded, setIsLoaded]  = useState(false);
      
+
+    const activateCircularLoad=()=>{
+        setIsLoaded(true)
+        timer(1000).subscribe(()=>setIsLoaded(false))
+    }
     useEffect(()=>{
         
         const obsDiscoverService= ()=>{
@@ -36,7 +42,7 @@ import { useNavigate } from "react-router-dom";
                });
             }
             else{
-                DiscoverService().subscribe((response)=>{
+                DiscoverService(currentGenre.code,currentNumberPage.number).subscribe((response)=>{
                     setMoviesDiscoverList(response) 
                });
             }
@@ -49,6 +55,22 @@ import { useNavigate } from "react-router-dom";
    
        },[currentGenre.code, moviesDiscoverList,currentNumberPage])
        
+        const backward = ()=>{
+            if(currentNumberPage.number>1){
+                activateCircularLoad();
+                setCurrentNumberPage({number:(currentNumberPage.number-=1)})
+            }
+            
+        }
+
+        const fordward = ()=>{
+            if(currentNumberPage.number<5){
+                activateCircularLoad();
+                setCurrentNumberPage({number:(currentNumberPage.number+=1)})
+            }
+            
+        }
+
         const navigate  = useNavigate()
         const goToShow=(id:number)=>{
 
@@ -71,8 +93,19 @@ import { useNavigate } from "react-router-dom";
         <article className="option right__option" ></article>
 
 
+       {moviesDiscoverList.length? <article className="pagination">
         
+        <button onClick={()=>backward()}> < ChevronLeftIcon /> </button>
+            <p>{currentNumberPage.number}</p>  
+        <button onClick={()=>fordward()}> < ChevronRightIcon /> </button>
+     
+        {isLoaded? <Box  sx={{ display: 'flex' }}>
+            <CircularProgress   />
+        </Box> :false}
 
+
+        </article>:false}
+        
 
 
         {/*lists genres*/}
@@ -90,6 +123,7 @@ import { useNavigate } from "react-router-dom";
                             return <article className="button__option animate__animated animate__fadeIn " 
                             onClick={()=>{
                                 setOpenModal(false);
+                                setCurrentNumberPage({number:1})
                                 setCurrentGenre({name:data.type,code:data.code});
                                 setMoviesDiscoverList([])
                             }}
@@ -106,7 +140,8 @@ import { useNavigate } from "react-router-dom";
 
   
      <section className="CardMovie">
-
+  
+        
                
                    {
                     
@@ -121,7 +156,7 @@ import { useNavigate } from "react-router-dom";
                             {movies.title? <p className="card__title">{movies.title.substring(0,9)}</p>:
                             <p className="modal__card__title">{movies.name?.substring(0,19)}</p>}
                             </div>
-                            
+                        
                         </article>
                        )
                        }): <SkeletonComponent />

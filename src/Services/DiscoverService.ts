@@ -4,7 +4,7 @@ import { API_KEY, mainURL } from "./API-KEY";
 import { ajax } from "rxjs/ajax";
 
 
-export default function DiscoverService(number_genres:number=28,page:number=1){
+export default function DiscoverService(number_genres:number=28,page:number){
     const url =  `${mainURL}discover/movie?api_key=${API_KEY}&with_genres=${number_genres}}&language=es&page=${page}`
   
     return ajax.get(url, {
