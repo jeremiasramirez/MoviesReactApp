@@ -1,0 +1,35 @@
+
+.container__selective__movie{
+    border: 3px solid blue;
+    width: 900px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.container__selective__poster{
+    width: 300px;
+    height: inherit;
+    background-color: red;
+}
+
+
+.container__selective__info{
+    background-color: magenta;
+    width: 550px;
+    height: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

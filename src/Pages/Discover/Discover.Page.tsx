@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
     const [openModal,setOpenModal] = useState(false)
     
     const [currentGenre,setCurrentGenre] = useState({name: 'Action',code:0 })
+    const [currentNumberPage,setCurrentNumberPage] = useState({number:1 })
     const handleOpenModal = () => setOpenModal(true);
     const handleCloseModal = () => setOpenModal(false);
     const [moviesDiscoverList,setMoviesDiscoverList] = useState([])
@@ -30,7 +31,7 @@ import { useNavigate } from "react-router-dom";
         const obsDiscoverService= ()=>{
             
             if(currentGenre.code){
-                DiscoverService(currentGenre.code).subscribe((response)=>{
+                DiscoverService(currentGenre.code, currentNumberPage.number).subscribe((response)=>{
                     setMoviesDiscoverList(response) 
                });
             }
@@ -41,15 +42,12 @@ import { useNavigate } from "react-router-dom";
             }
            
 
-
-
-
         }
       
    
            return ()=>{ obsDiscoverService() }
    
-       },[currentGenre.code, moviesDiscoverList])
+       },[currentGenre.code, moviesDiscoverList,currentNumberPage])
        
         const navigate  = useNavigate()
         const goToShow=(id:number)=>{
@@ -66,7 +64,7 @@ import { useNavigate } from "react-router-dom";
     <section className="container__select">
         <article className="option left__option"></article>
 
-        <article className="main__option" onClick={()=>handleOpenModal()}>
+        <article className="main__option animate__animated animate__bounceIn" onClick={()=>handleOpenModal()}>
             <p >{currentGenre.name}</p>
         </article>
 
@@ -91,15 +89,9 @@ import { useNavigate } from "react-router-dom";
                         genresLists().map((data,index)=>{
                             return <article className="button__option animate__animated animate__fadeIn " 
                             onClick={()=>{
-                                
-                                
                                 setOpenModal(false);
-                                setMoviesDiscoverList([])
-                                
                                 setCurrentGenre({name:data.type,code:data.code});
-                                console.log({name:data.type,code:data.code});
-                                
-                                
+                                setMoviesDiscoverList([])
                             }}
                              key={index}>{data.type}</article>
                         })
@@ -118,12 +110,12 @@ import { useNavigate } from "react-router-dom";
                
                    {
                     
-                     moviesDiscoverList.length?  moviesDiscoverList.map((movies:MOVIE_INTERFACE,index:number)=>{
+                     moviesDiscoverList.length>=1?  moviesDiscoverList.map((movies:MOVIE_INTERFACE,index:number)=>{
                           
                            return( 
                             <article  onClick={()=>goToShow(movies.id)} key={index}  className="modal__card animate__animated animate__fadeIn">
                          
-                            <img className="modal__card__image" src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
+                            <img className="modal__card__image " src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
                             
                             <div className="modal__container__title__card">
                             {movies.title? <p className="card__title">{movies.title.substring(0,9)}</p>:

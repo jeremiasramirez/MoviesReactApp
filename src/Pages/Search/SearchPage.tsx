@@ -131,7 +131,7 @@ export default function SearchPage(){
                      
                   return( 
 
-                            movies.poster_path? <article  onClick={()=>goToShow(movies.id)} key={index}  className="modal__card animate__animated animate__fadeIn">
+                            movies.poster_path? <article  onClick={()=>goToShow(movies.id)} key={index}  className="modal__card animate__animated animate__fadeInUp">
                          
                              <img className="modal__card__image" src={"https://image.tmdb.org/t/p/w200/"+movies.poster_path+".jpg"} alt="poster" />
                              

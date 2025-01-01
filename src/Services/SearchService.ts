@@ -13,6 +13,7 @@ export default function SearchService(query:string):Observable<unknown>{
       }).pipe(
         pluck("response","results"),
         // take(10),
+        delay(1000),
         debounceTime(2000) 
       )
 }
